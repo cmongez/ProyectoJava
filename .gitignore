@@ -1,0 +1,24 @@
+# Ignorar archivos y directorios generados por NetBeans
+/nbproject/
+/build/
+/nbbuild/
+/dist/
+/nbmetadata/
+/.nb-gradle/
+/derby.log
+/build.xml
+/nb-configuration.xml
+
+# Ignorar archivos de respaldo y temporales
+*~
+*.bak
+*.swp
+*.tmp
+*.log
+*.DS_Store
+
+# Ignorar archivos compilados
+*.class
+
+# Ignorar archivos de dependencias
+/libs/
