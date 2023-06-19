@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
-        <title>JSP Page</title>
+        <title>EcoDev</title>
     </head>
     <body>
 
@@ -32,15 +32,15 @@
                     <div style="z-index:2" class="align-self-center text-center text-light ">
                         <div class="lc-block mb-4">
                             <div editable="rich">
-                                <h1 class="display-1 fw-bolder">Empresa Ficticia</h1>
+                                <h1 class="display-1 fw-bolder" style="text-shadow: 2px 2px 4px #000000;">Bienvenido a EcoDev</h1>
                             </div>
                         </div>
 
-                        <div class="lc-block">
+                        <div class="lc-block" style="text-shadow: 2px 2px 4px #000000;">
                             <div editable="rich">
-                                <p class="lead">Somos una empresa Ficticia</p>
+                                <p class="lead">Somos EcoDev</p>
 
-                                <p class="lead">Sim in vestibulum metus pulvinar sit amet.
+                                <p class="lead">Desarrollo de sofware eficiente
 
                                 </p>
 
@@ -116,21 +116,7 @@
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
-
         </main>
-
-
-
-
-
-
-
 
         <!-- Hero -->
         <%@ include file="/WEB-INF/includes/footer.jsp" %>

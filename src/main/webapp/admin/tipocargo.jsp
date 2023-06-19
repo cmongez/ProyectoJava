@@ -35,7 +35,7 @@
                                     <th>id</th>
                                     <th>Nombre</th>
                                     <th>Descripción</th>
-                                    <th>op</th>
+                                    <th>Acción</th>
 
                                 </tr>
                             </thead>
@@ -47,11 +47,11 @@
                                         <td>${tipoCargo.getIdTipoCargo()}</td>
                                         <td>${tipoCargo.getNombreTipoCargo()}</td>
                                         <td>${tipoCargo.getDescripcionTipoCargo()}</td>
-                                        <td><a class="btn btn-primary"
-                                                href="/admin/tipocargo?opcion=editar&idTipoCargo=${tipoCargo.getIdTipoCargo()}"></a><a
+                                        <td><a class="btn btn-success"
+                                               href="/admin/tipocargo?opcion=editar&idTipoCargo=${tipoCargo.getIdTipoCargo()}"><i class="fa-solid fa-pencil"></i></a><a
                                                 class="btn btn-danger"
-                                                href="/admin/tipocargo?opcion=eliminar&idTipoCargo=${tipoCargo.getIdTipoCargo()}">
-                                                </>
+                                                href="/admin/tipocargo?opcion=eliminar&idTipoCargo=${tipoCargo.getIdTipoCargo()}"><i class="fa-regular fa-trash-can"></i>
+                                                </a>
                                         </td>
                                     </tr>
                                 </c:forEach>

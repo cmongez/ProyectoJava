@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg bg-ficticia-secondary ficticia ">
     <div class="container-fluid">
-        <a class="navbar-brand text-light" href="/">Ficticia</a>
+        <a class="navbar-brand text-light" href="/">EcoDev</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,13 +14,13 @@
 
                 <c:if test="${empty sessionScope.usuario}">
                     <li class="nav-item">
-                        <a class="nav-link" href="#quienes-somos">¿Quienes somos?</a>
+                        <a class="nav-link" href="/#quienes-somos">¿Quienes somos?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#recruiting">Recruiting</a>
+                        <a class="nav-link" href="/#recruiting">Recruiting</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#perfiles">Perfiles</a>
+                        <a class="nav-link" href="/#perfiles">Perfiles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>

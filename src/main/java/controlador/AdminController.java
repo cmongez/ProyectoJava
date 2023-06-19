@@ -2,30 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlet;
+package controlador;
 
-import DAO.TipoCargoDAO;
+import DAO.AdminDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
+import java.util.Optional;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import conexion.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modelo.TipoCargo;
+import modelo.Admin;
+import servicio.LoginServicio;
 
 /**
  *
  * @author cmongez
  */
-public class Servlet extends HttpServlet {
+public class AdminController extends HttpServlet {
+     AdminDAO adminDAO = new AdminDAO();
 
-    private Conexion conexion;
+    Admin admin = new Admin();
+    String opcion = "";
+    int idAdmin = -1;
+
+    List<Admin> listaAdmin;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,24 +38,21 @@ public class Servlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Servlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Servlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        LoginServicio auth = new LoginServicio();
+        Optional<String> usernameOptional = auth.getUsername(request);
+
+        if (!usernameOptional.isPresent()) {
+            getServletContext().getRequestDispatcher("/login").forward(request, response);
+            return;
         }
+        opcion = request.getParameter("opcion");
+        if (opcion == null) {
+            opcion = "";
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -68,6 +67,10 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
+                RequestDispatcher dispatcherAdmin = request.getRequestDispatcher("admin.jsp");
+                                dispatcherAdmin.forward(request, response);
+
 
     }
 
@@ -82,25 +85,7 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String nombreTipoCargo = request.getParameter("nombreCargo");
-        String descripcionTipoCargo = request.getParameter("descripcionCargo");
-        
-        TipoCargoDAO tipoCargoDAO = new TipoCargoDAO();
-        TipoCargo tipoCargo = new TipoCargo(nombreTipoCargo, descripcionTipoCargo);
-        Boolean respuesta = false;
-        
-        System.out.println(nombreTipoCargo + " " + descripcionTipoCargo);
-
-        try {
-            tipoCargo = new TipoCargo(nombreTipoCargo,descripcionTipoCargo);
-            
-            tipoCargo = (TipoCargo) tipoCargoDAO.agregarTipoCargo(tipoCargo);
-            
-        }  catch(Exception ex){ // Manejo de la excepción
-            System.out.println("Ocurrió una excepción: " + ex.getMessage());
-        }
-
+        processRequest(request, response);
     }
 
     /**

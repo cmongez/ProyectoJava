@@ -2,27 +2,27 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>servlet.LoginController</servlet-class>
+        <servlet-class>controlador.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UsuarioController</servlet-name>
-        <servlet-class>servlet.UsuarioController</servlet-class>
+        <servlet-class>controlador.UsuarioController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TipoCargoController</servlet-name>
-        <servlet-class>servlet.TipoCargoController</servlet-class>
+        <servlet-class>controlador.TipoCargoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DepartamentoController</servlet-name>
-        <servlet-class>servlet.DepartamentoController</servlet-class>
+        <servlet-class>controlador.DepartamentoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CargoController</servlet-name>
-        <servlet-class>servlet.CargoController</servlet-class>
+        <servlet-class>controlador.CargoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Admin</servlet-name>
-        <servlet-class>servlet.AdminController</servlet-class>
+        <servlet-class>controlador.AdminController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -30,7 +30,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
-        <servlet-class>servlet.LogoutController</servlet-class>
+        <servlet-class>controlador.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>

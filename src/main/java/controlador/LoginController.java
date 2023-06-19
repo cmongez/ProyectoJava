@@ -2,32 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlet;
+package controlador;
 
-import DAO.AdminDAO;
+import DAO.LoginDAO;
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Admin;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
+import java.util.Optional;
+import modelo.Login;
 import servicio.LoginServicio;
+
+
 
 /**
  *
  * @author cmongez
  */
-public class AdminController extends HttpServlet {
-     AdminDAO adminDAO = new AdminDAO();
-
-    Admin admin = new Admin();
-    String opcion = "";
-    int idAdmin = -1;
-
-    List<Admin> listaAdmin;
+public class LoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,22 +34,6 @@ public class AdminController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        LoginServicio auth = new LoginServicio();
-        Optional<String> usernameOptional = auth.getUsername(request);
-
-        if (!usernameOptional.isPresent()) {
-            getServletContext().getRequestDispatcher("/login").forward(request, response);
-            return;
-        }
-        opcion = request.getParameter("opcion");
-        if (opcion == null) {
-            opcion = "";
-        }
-
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -67,11 +47,17 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-                RequestDispatcher dispatcherAdmin = request.getRequestDispatcher("admin.jsp");
-                                dispatcherAdmin.forward(request, response);
+        
+        LoginServicio auth = new LoginServicio();
+        Optional<String> usernameOptional = auth.getUsername(request);
 
+        if (usernameOptional.isPresent()) {
+            getServletContext().getRequestDispatcher("/").forward(request, response);
+        } else {
 
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 
     /**
@@ -85,7 +71,24 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String email = request.getParameter("correo");
+        String password = request.getParameter("contrasenia");
+        Login login = new Login();
+        LoginDAO loginDAO = new LoginDAO();
+        login.setContrasenia(password);
+        login.setCorreo(email);
+        
+        boolean estaLogueado = loginDAO.validarDatosLogin(login);
+        System.out.println(estaLogueado);
+        if (estaLogueado) {
+            // Si las credenciales son válidas, crear una sesión para el usuario
+            HttpSession session = request.getSession();
+            session.setAttribute("usuario", email);
+            response.sendRedirect("/");
+        } else {
+            // Si las credenciales son inválidas, redirigir al formulario de login con un mensaje de error
+            response.sendRedirect("login?error=true");
+        }
     }
 
     /**

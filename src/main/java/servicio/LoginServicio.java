@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
  * @author cmongez
  */
 public class LoginServicio implements LoginInterface {
+    
 
     @Override
     public Optional<String> getUsername(HttpServletRequest request) {

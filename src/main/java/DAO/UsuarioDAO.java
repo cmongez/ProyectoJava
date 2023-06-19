@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit usuario settemplate
  */
 package DAO;
-import Log.CrearLog;
+import log.CrearLog;
 import conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -10,23 +10,23 @@
       ></a>
 
       <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" target="_blank"  href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1" target="_blank"  href="https://www.twitter.com/" role="button"
         ><i class="fab fa-twitter"></i
       ></a>
 
 
       <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1"  target="_blank" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1"  target="_blank" href="https://www.instagram.com/" role="button"
         ><i class="fab fa-instagram"></i
       ></a>
 
       <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1"  target="_blank" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1"  target="_blank" href="https://www.linkedin.com/in/cesar-mongez" role="button"
         ><i class="fab fa-linkedin-in"></i
       ></a>
 
       <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" target="_blank"  href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1" target="_blank"  href="https://www.github.com/cmongez" role="button"
         ><i class="fab fa-github"></i
       ></a>
     </section>
@@ -36,7 +36,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2023 Ficticia -  Desarrollado por <a target="_blank" href="https://cmongez.github.io/portafolio/">César Mongez</a>
+      © 2023 EcoDev -  Desarrollado por <a target="_blank" href="https://cmongez.github.io/portafolio/">César Mongez</a>
   </div>
   <!-- Copyright -->
 </footer>	
