@@ -20,8 +20,8 @@ Siga estos pasos para configurar y ejecutar el proyecto:
 2. Inicia los módulos de Apache y MySQL haciendo clic en los botones "Start" junto a cada uno situados en el panel de control de XAMPP
 3. Abre tu navegador web y ve a "localhost/phpmyadmin".
 4. Dirigete a la seccion de ejecucion de sentencias SQL.
-5. Copia y pega las sentencias SQL en el archibo DB.sql que esta situado en el directorio principal
-> ProyectoJava/DB.sql
+5. Copia y pega las sentencias SQL en el archibo ficticia.sql que esta situado en el directorio principal
+> ProyectoJava/ficticia.sql
 6. Ejecuta las sentencias para que se genere la base de datos con sus datos de prueba
 7. Navegar al directorio del proyecto:
 8. Compilar y empaquetar el proyecto usando Maven:

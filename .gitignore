@@ -7,8 +7,7 @@
 /.nb-gradle/
 /derby.log
 /build.xml
-/nb-configuration.xml
-/target
+/target/
 
 # Ignorar archivos de respaldo y temporales
 *~
@@ -23,3 +22,6 @@
 
 # Ignorar archivos de dependencias
 /libs/
+
+#ignorar archivos de configuracion 
+nb-configuration.xml
