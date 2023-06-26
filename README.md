@@ -8,8 +8,26 @@ Asegúrese de tener instalado lo siguiente:
 
 - Java 8 o superior
 - Maven
-- Spring Boot
+- Spring MVC
 - XAMPP
+
+## Tecnologías
+
+| Recursos utilizados       | Enlace                                                                               |
+| ------------------------- | -----------------------------------------------------------------------------------  |
+| Java                      | [Ir a la web ](https://www.java.com/es/download/ie_manual.jsp)                       |
+| Bootstrap 5.2.0           | [Ir a la web ](https://getbootstrap.com/)                                            |
+| Font Awesome              | [Ir a la web ](https://fontawesome.com/)                                             |
+| Mysql                     | [Ir a la web](https://www.npmjs.com/package/mysql)                                   |
+| Spring MVC                | [Ir a la web](https://spring.io/projects/spring-boot)                                |
+| Maven                     | [Ir a la web](https://maven.apache.org/)                                             |
+| JUnit                     | [Ir a la web](https://junit.org/junit5/)                                             |
+| Git                       | [Ir a la web](https://git-scm.com/)                                                  |
+| Mysql Connector           | [Ir a la web](https://www.npmjs.com/package/mysql)                                   |
+| JSTL                      | [Ir a la web](https://mvnrepository.com/artifact/jstl/jstl))                         |
+
+
+
 
 ## Configuración
 
@@ -33,6 +51,16 @@ Siga estos pasos para configurar y ejecutar el proyecto:
 12. Para ingresar a la zona de administrador debes loguearte ingresando a la vista login usando el menu o a traves de la url 
 > http://localhost:8080/login
 13. Utilice las credenciales usuario: admin@admin.com, password: 1234
+
+
+# API
+### GET: Obtener usuarios por RUT
+
+`/api/rest/get/:rut`
+
+Devuelve el objeto usuario que coincida con el rut proporcionado, de no existir devuelve un null.
+
+Ejemplo: *http://localhost:8084/api/rest/get/26579154*
 
 ## Contacto
 
