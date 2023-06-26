@@ -12,7 +12,7 @@
               integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
               crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <title>JSP Page</title>
+        <title>Trabajadores</title>
     </head>
 
     <body>
@@ -37,9 +37,8 @@
                                 <th>Fecha Nacimiento</th>
                                 <th>Genero</th>
                                 <th>Fecha contratación</th>
-                                <th>Cargo</th>
                                 <th>Telefono</th>
-                                <th>Op</th>
+                                <th>Acción</th>
 
 
                             </tr>
@@ -61,13 +60,11 @@
                                     <td>${usuario.getFechaNacimiento()}</td>
                                     <td>${usuario.getGenero()}</td>
                                     <td>${usuario.getFechaContratacion()}</td>
-                                    <td>${usuario.getIdCargo()}</td>
                                     <td>${usuario.getTelefonoUsuario()}</td>
                                     <td><a class="btn btn-primary"
-                                           href="/admin/trabajadores?opcion=editar&rutUsuario=${usuario.getRut()}"></a><a
+                                           href="/admin/trabajadores?opcion=editar&rutUsuario=${usuario.getRut()}"><i class="fa-solid fa-pencil"></i></a><a
                                            class="btn btn-danger"
-                                           href="/admin/trabajadores?opcion=eliminar&rutUsuario=${usuario.getRut()}">
-                                            </>
+                                           href="/admin/trabajadores?opcion=eliminar&rutUsuario=${usuario.getRut()}"><i class="fa-regular fa-trash-can"></i> </a>
                                     </td>
                                 </tr>
 

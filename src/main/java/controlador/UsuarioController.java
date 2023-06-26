@@ -4,7 +4,6 @@
  */
 package controlador;
 
-import DAO.UsuarioDAO;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -15,19 +14,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 import servicio.LoginServicio;
+import servicio.UsuarioServicio;
 
 /**
+ * Este controlador maneja las solicitudes relacionadas con los usuarios.
+ * Implementa los métodos doPost y doGet para procesar las solicitudes POST y
+ * GET, respectivamente.
  *
  * @author cmongez
  */
 public class UsuarioController extends HttpServlet {
 
-    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    UsuarioServicio usuarioServicio = new UsuarioServicio();
     Usuario usuario = new Usuario();
     String opcion = "";
     int rutUsuario = 0;
     List<Usuario> listaUsuario;
 
+    /**
+     * Obtiene los datos del formulario relacionados con el usuario y los
+     * almacena en el objeto Usuario.
+     *
+     * @param request el objeto HttpServletRequest que contiene los parámetros
+     * del formulario
+     * @param response el objeto HttpServletResponse utilizado para enviar la
+     * respuesta
+     * @throws ServletException si ocurre un error al procesar la solicitud
+     * @throws IOException si ocurre un error de entrada/salida
+     */
     protected void obtenerDatosFormUsuario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -39,7 +53,7 @@ public class UsuarioController extends HttpServlet {
             String nombres = request.getParameter("nombres");
             String apellidos = request.getParameter("apellidos");
             String correo = request.getParameter("correo");
-            
+
             String fechaNacimiento = request.getParameter("fechaNacimiento");
             String genero = request.getParameter("genero");
             String fechaContratacion = request.getParameter("fechaContratacion");
@@ -59,6 +73,16 @@ public class UsuarioController extends HttpServlet {
         }
     }
 
+    /**
+     * Procesa la solicitud POST o GET. Verifica la autenticación del usuario y
+     * procesa la opción seleccionada en el formulario.
+     *
+     * @param request el objeto HttpServletRequest que contiene la solicitud
+     * @param response el objeto HttpServletResponse utilizado para enviar la
+     * respuesta
+     * @throws ServletException si ocurre un error al procesar la solicitud
+     * @throws IOException si ocurre un error de entrada/salida
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         LoginServicio auth = new LoginServicio();
@@ -74,6 +98,16 @@ public class UsuarioController extends HttpServlet {
 
     }
 
+    /**
+     * Procesa la solicitud GET. Maneja las diferentes opciones seleccionadas en
+     * el formulario y redirige a las páginas correspondientes.
+     *
+     * @param request el objeto HttpServletRequest que contiene la solicitud GET
+     * @param response el objeto HttpServletResponse utilizado para enviar la
+     * respuesta
+     * @throws ServletException si ocurre un error al procesar la solicitud
+     * @throws IOException si ocurre un error de entrada/salida
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -85,7 +119,6 @@ public class UsuarioController extends HttpServlet {
         switch (opcion) {
             case "crear":
 
-                
                 usuario = new Usuario();
                 request.setAttribute("modoEditar", false);
                 dispatcherFormTrabajadores.forward(request, response);
@@ -93,7 +126,7 @@ public class UsuarioController extends HttpServlet {
 
             case "editar":
                 rutUsuario = Integer.parseInt(request.getParameter("rutUsuario"));
-                usuario = usuarioDAO.obtenerUsuarioPorRut(rutUsuario);
+                usuario = usuarioServicio.obtenerUsuarioPorRut(rutUsuario);
                 request.setAttribute("usuario", usuario);
                 request.setAttribute("modoEditar", true);
 
@@ -103,14 +136,14 @@ public class UsuarioController extends HttpServlet {
             case "eliminar":
                 rutUsuario = Integer.parseInt(request.getParameter("rutUsuario"));
                 System.out.println(rutUsuario);
-                usuarioDAO.eliminarUsuario(rutUsuario);
-                listaUsuario = usuarioDAO.listarUsuario();
+                usuarioServicio.eliminarUsuario(rutUsuario);
+                listaUsuario = usuarioServicio.listarUsuario();
                 request.setAttribute("usuarios", listaUsuario);
                 dispatcherTrabajadores.forward(request, response);
                 return;
 
             default:
-                listaUsuario = usuarioDAO.listarUsuario();
+                listaUsuario = usuarioServicio.listarUsuario();
                 request.setAttribute("usuarios", listaUsuario);
 
                 dispatcherTrabajadores.forward(request, response);
@@ -119,12 +152,16 @@ public class UsuarioController extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Procesa la solicitud POST. Maneja las diferentes opciones seleccionadas
+     * en el formulario y realiza las operaciones correspondientes en la base de
+     * datos.
      *
-     * @param request  servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @param request el objeto HttpServletRequest que contiene la solicitud
+     * POST
+     * @param response el objeto HttpServletResponse utilizado para enviar la
+     * respuesta
+     * @throws ServletException si ocurre un error al procesar la solicitud
+     * @throws IOException si ocurre un error de entrada/salida
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -137,8 +174,8 @@ public class UsuarioController extends HttpServlet {
             case "agregar":
                 // Datos usuario
                 obtenerDatosFormUsuario(request, response);
-                usuarioDAO.agregarUsuario(usuario);
-                listaUsuario = usuarioDAO.listarUsuario();
+                usuarioServicio.agregarUsuario(usuario);
+                listaUsuario = usuarioServicio.listarUsuario();
                 request.setAttribute("usuarios", listaUsuario);
                 dispatcherTrabajadores.forward(request, response);
                 return;
@@ -146,8 +183,8 @@ public class UsuarioController extends HttpServlet {
             case "actualizar":
 
                 obtenerDatosFormUsuario(request, response);
-                usuarioDAO.actualizarUsuario(usuario);
-                listaUsuario = usuarioDAO.listarUsuario();
+                usuarioServicio.actualizarUsuario(usuario);
+                listaUsuario = usuarioServicio.listarUsuario();
                 request.setAttribute("usuarios", listaUsuario);
                 dispatcherTrabajadores.forward(request, response);
                 return;

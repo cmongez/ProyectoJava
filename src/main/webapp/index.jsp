@@ -27,7 +27,7 @@
                 <div class="d-flex min-vh-100 justify-content-center" lc-helper="video-bg">
                     <video style="z-index:1;object-fit: cover; object-position: 50% 50%;" class="position-absolute w-100 min-vh-100" autoplay="" preload="" muted="" loop="" playsinline="">
                         <!-- adjust object-position to tweak cropping on mobile -->
-                        <source src="https://cdn.livecanvas.com/media/nature/video.mp4" type="video/mp4">
+                        <source src="./img/hero-video.mp4" type="video/mp4">
                     </video>
                     <div style="z-index:2" class="align-self-center text-center text-light ">
                         <div class="lc-block mb-4">

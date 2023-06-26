@@ -13,10 +13,6 @@
         <servlet-class>controlador.TipoCargoController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DepartamentoController</servlet-name>
-        <servlet-class>controlador.DepartamentoController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CargoController</servlet-name>
         <servlet-class>controlador.CargoController</servlet-class>
     </servlet>
@@ -43,10 +39,6 @@
     <servlet-mapping>
         <servlet-name>TipoCargoController</servlet-name>
         <url-pattern>/admin/tipocargo</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DepartamentoController</servlet-name>
-        <url-pattern>/departamentos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>

@@ -12,7 +12,7 @@
                 crossorigin="anonymous">
                         <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
-            <title>JSP Page</title>
+            <title>Cargo</title>
         </head>
 
         <body>

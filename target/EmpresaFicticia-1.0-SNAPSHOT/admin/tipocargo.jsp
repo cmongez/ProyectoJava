@@ -12,7 +12,7 @@
                 integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                 crossorigin="anonymous">
             <link rel="stylesheet" type="text/css" href="../css/styles.css">
-            <title>JSP Page</title>
+            <title>Tipos de cargo</title>
         </head>
 
         <body>

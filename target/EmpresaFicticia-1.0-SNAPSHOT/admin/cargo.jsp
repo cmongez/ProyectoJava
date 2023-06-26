@@ -12,7 +12,7 @@
               integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
               crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <title>JSP Page</title>
+        <title>Cargo</title>
     </head>
 
     <body>
@@ -32,7 +32,7 @@
                         <table class="table table-hover table-striped table-bordered ">
                             <thead>
                                 <tr>
-                                    <th>id</th>
+                                    <th>idCargo</th>
                                     <th>idTipoCargo</th>
                                     <th>Nombre Cargo</th>
                                     <th>Nombre Tipo Cargo</th>
@@ -50,10 +50,9 @@
                                         <td>${cargo.getNombreCargo()}</td>
                                         <td>${cargo.getNombreTipoCargo()}</td>
                                         <td><a class="btn btn-primary"
-                                               href="/admin/cargo?opcion=editar&idCargo=${cargo.getIdCargo()}"></a><a
+                                               href="/admin/cargo?opcion=editar&idCargo=${cargo.getIdCargo()}"><i class="fa-solid fa-pencil"></i></a><a
                                                class="btn btn-danger"
-                                               href="/admin/cargo?opcion=eliminar&idCargo=${cargo.getIdCargo()}">
-                                                </>
+                                               href="/admin/cargo?opcion=eliminar&idCargo=${cargo.getIdCargo()}"> <i class="fa-regular fa-trash-can"></i> </a>
                                         </td>
                                     </tr>
                                 </c:forEach>
