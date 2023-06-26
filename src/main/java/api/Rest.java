@@ -27,6 +27,6 @@ public class Rest {
 
     // Devolver el JSON resultante
     return json;
-        //http://localhost:8080/demoRest/api/rest/get/rut (
+        //http://localhost:8080/api/rest/get/rut (
     }
 }
