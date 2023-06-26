@@ -8,6 +8,7 @@
 /derby.log
 /build.xml
 /nb-configuration.xml
+/target
 
 # Ignorar archivos de respaldo y temporales
 *~
